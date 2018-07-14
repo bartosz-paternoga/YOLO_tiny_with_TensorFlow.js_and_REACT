@@ -42,5 +42,61 @@
   
   background-color: darkblue;
    text-align: center;
-  
+}
+
+
+#webcam-wrapper {
+  border-radius: 5px;
+
+  margin: 0 auto;
+  width: 416px;
+  height: 416px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+
+.rect {
+  position: absolute;
+  border: 2px solid red;
+  font-size: 24px;
+
+}
+
+
+
+.rect .label {
+  background: white;
+  color: black;
+  display: inline;
+  opacity: 0.8;
+  font-size: 16px;
+  padding: 3px;
+  text-transform: capitalize;
+  white-space: nowrap;
+}
+
+.btn {
+  font-weight: 700;
+  text-transform: uppercase;
+  border-radius: 300px;
+  font-family: 'Montserrat', sans-serif;
+  color: white;
+}
+
+.btn-xl {
+  padding: 1rem 2rem; 
+}
+
+.btn-primary {
+  background-color: black;
+  border-color: darkblue; }
+
+.btn-primary:hover {
+  background-color: darkblue;
+  border-color: darkblue;
+  border-width: 5px;
+  cursor: pointer;
 }

@@ -5,7 +5,7 @@ import './App.css';
 
 const Comp = (props) => (
 
-  <div className="All" >
+  <div  >
 
     <div className="App" >
       <header className="App-header" >
@@ -14,19 +14,17 @@ const Comp = (props) => (
       </header>     
     </div> <br/>
 
-    
-    <div className="App">
+    <div id="webcam-wrapper" >
+        <video id="video"  width="416" height="416" controls autoPlay ></video>
+    </div><br/>
 
-    <video  width="416" height="416" id="video" controls autoPlay ></video>
-    </div>
 
 
    <div className="App">
-    <button onClick={props.startWebcam}>Start WebCam</button>
-    <button onClick={props.stopWebcam}>Stop WebCam</button>
+    <button className="btn btn-primary btn-xl" onClick={props.startWebcam}>Start WebCam</button>
+    <button className="btn btn-primary btn-xl" onClick={props.stopWebcam}>Stop WebCam</button>
  
-     <p className="Space" >Predicted output : {props.nameyolo} </p>
-     <p className="Space" >Probability: {props.probability} </p>
+
   </div>
 
 </div>

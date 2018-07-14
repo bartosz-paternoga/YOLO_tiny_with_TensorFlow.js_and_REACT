@@ -7,7 +7,6 @@ import Comp from './component1';
 
 
 
-
 class App extends Component {
 
   state = {
@@ -31,7 +30,9 @@ class App extends Component {
         // successCallback
               function(a) {   
               const video = document.querySelector('video');
-              video.srcObject = a;           
+
+              video.srcObject = a; 
+
               },
 
         // errorCallback
@@ -39,7 +40,7 @@ class App extends Component {
 
       );
 
-        this.main();
+      this.main();
 
     } 
 
@@ -68,8 +69,11 @@ class App extends Component {
     }
 
 
+
     run = async () => {
       while (true) {
+
+        this.clearRects();
        
         const inputImage = this.capture();
 
@@ -83,34 +87,19 @@ class App extends Component {
 
 
         prediction.forEach(i=> {
-         
-       //   console.log("Object name: ", i.className);
-        //  console.log("Probability: ", i.classProb);
-         // console.log("top: ", i.top);
-         // console.log("bottom :", i.bottom);
-        //  console.log("left: ", i.left);
-         // console.log("right: ", i.right);
-
+     
           const name = i.className;
           this.state.name= name;
           this.setState({name});
 
-
           const probability = ((i.classProb.toFixed(4))*100);
           this.state.probability= probability;
           this.setState({probability});
-
-        
-
-          //console.log("SATAE Object name: ", this.state.name, this.state.probability);
-        
+       
         });
         
         
-        await tf.nextFrame();
-
-
-        const a = prediction.length ;
+         const a = prediction.length ;
 
           if( a !== 1) {
 
@@ -121,16 +110,55 @@ class App extends Component {
           const name = '';
           this.state.name = name;
           this.setState({name});
-
         } 
 
 
 
+        prediction.forEach(box => {
+          const {
+            top, left, bottom, right, classProb, className,
+          } = box;
+
+          this.drawRect(left, top, right-left, bottom-top,
+            `${className} Confidence: ${Math.round(classProb * 100)}%`)
+
+        });
+
+
+         await tf.nextFrame();
+
+      }
+    }
+
+ 
+
+     drawRect = (x, y, w, h, text = '', color = 'blue') => {
+
+      const webcamElem = document.getElementById('webcam-wrapper');
+      const rect = document.createElement('div');
+      rect.classList.add('rect');
+      rect.style.cssText = `top: ${y}px; left: ${x}px; width: ${w}px; height: ${h}px; border-color: ${color}`;
+
+      const label = document.createElement('div');
+      label.classList.add('label');
+      label.innerText = text;
+      rect.appendChild(label);      
+        
+      webcamElem.appendChild(rect);
+    }
+
+
+
+    clearRects = () => {
+      const rects = document.getElementsByClassName('rect');
+      while(rects[0]) {
+        rects[0].parentNode.removeChild(rects[0]);
       }
     }
 
 
-      
+
+
       capture =  () => {
         return tf.tidy(() => {
           // Reads the image as a Tensor from the webcam <video> element.

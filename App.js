@@ -11,6 +11,7 @@ class App extends Component {
 
   state = {
       model:{},
+      modelLoad: "",
       name: '',
       prediction:'',
       probability:''
@@ -59,8 +60,21 @@ class App extends Component {
       try {
        
         var model = await downloadModel();
+
+
+        var modelLoad = "LOADED";
+        this.modelLoad = modelLoad;
+        this.setState({modelLoad}); 
+        console.log({modelLoad});
+
         this.model = model;
-        this.setState({model});      
+        this.setState({model});       
+
+        if (this.modelLoad !=="") {
+          const elem = document.getElementById('loading-message');
+          elem.style.display = 'none';
+        }
+
         this.run();
 
       } catch(e) {
@@ -111,6 +125,9 @@ class App extends Component {
           this.state.name = name;
           this.setState({name});
         } 
+
+
+
 
 
 

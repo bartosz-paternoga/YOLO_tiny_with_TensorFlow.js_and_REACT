@@ -5,7 +5,8 @@ import './App.css';
 
 const Comp = (props) => (
 
-  <div  >
+  <div >
+
 
     <div className="App" >
       <header className="App-header" >
@@ -13,6 +14,10 @@ const Comp = (props) => (
         <h4 className="App-title">YOLO tiny with Tensorflow.js and REACT</h4>
       </header>     
     </div> <br/>
+
+    <div id="loading-message">
+       Press 'START WEBCAM', YOLO model will start loading. This will take a moment ...
+    </div><br/>    
 
     <div id="webcam-wrapper" >
         <video id="video"  width="416" height="416" controls autoPlay ></video>

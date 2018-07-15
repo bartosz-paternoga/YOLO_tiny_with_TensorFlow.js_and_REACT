@@ -41,19 +41,9 @@ class App extends Component {
 
       );
 
-      this.main();
-
     } 
 
     
-
-     stopWebcam = () => {
-
-       window.location.reload();
-       
-     }  
-
-
 
      main = async () => {
 
@@ -74,6 +64,8 @@ class App extends Component {
           const elem = document.getElementById('loading-message');
           elem.style.display = 'none';
         }
+
+        this.startWebcam();
 
         this.run();
 
@@ -210,8 +202,7 @@ class App extends Component {
         
         return (
                  <Comp
-                 startWebcam = {this.startWebcam}
-                 stopWebcam = {this.stopWebcam}
+                 main = {this.main}
                  nameyolo = {this.state.name}
                  probability = {this.state.probability}
 

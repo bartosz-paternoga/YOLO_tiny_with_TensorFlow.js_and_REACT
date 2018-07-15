@@ -8,7 +8,7 @@ const Comp = (props) => (
   <div >
 
 
-    <div className="App" >
+    <div className="App" onLoad = {props.main}>
       <header className="App-header" >
         <img src={logo} className="App-logo" alt="logo" /> 
         <h4 className="App-title">YOLO tiny with Tensorflow.js and REACT</h4>
@@ -16,21 +16,13 @@ const Comp = (props) => (
     </div> <br/>
 
     <div id="loading-message">
-       Press 'START WEBCAM', YOLO model will start loading. This will take a moment ...
+       YOLO model is loading. This will take a few moments ...
     </div><br/>    
 
     <div id="webcam-wrapper" >
         <video id="video"  width="416" height="416" controls autoPlay ></video>
     </div><br/>
 
-
-
-   <div className="App">
-    <button className="btn btn-primary btn-xl" onClick={props.startWebcam}>Start WebCam</button>
-    <button className="btn btn-primary btn-xl" onClick={props.stopWebcam}>Stop WebCam</button>
- 
-
-  </div>
 
 </div>
 );

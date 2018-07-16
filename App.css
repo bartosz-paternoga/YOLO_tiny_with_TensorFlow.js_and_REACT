@@ -4,12 +4,12 @@
 
 .App-logo {
   animation: App-logo-spin infinite 10s linear;
-  height: 40px;
+  height: 60px;
 }
 
 .App-header {
   background-color: #222;
-  height: 80px;
+  height: 100px;
   padding: 5px;
   color: white;
 }
@@ -52,7 +52,7 @@
   width: 416px;
   height: 416px;
   position: relative;
-  display: flex;
+  display: none;
   justify-content: center;
   overflow: hidden;
 }
@@ -78,48 +78,38 @@
   white-space: nowrap;
 }
 
-.btn {
-  font-weight: 700;
-  text-transform: uppercase;
-  border-radius: 300px;
-  font-family: 'Montserrat', sans-serif;
-  color: white;
-}
 
-.btn-xl {
-  padding: 1rem 2rem; 
-}
-
-.btn-primary {
-  background-color: black;
-  border-color: darkblue; }
-
-.btn-primary:hover {
-  background-color: darkblue;
-  border-color: darkblue;
-  border-width: 5px;
-  cursor: pointer;
-}
-
-
- .loader {
-    border: 16px solid #f3f3f3; /* Light grey */
-    border-top: 16px solid #3498db; /* Blue */
-    border-radius: 50%;
-    width: 120px;
-    height: 120px;
-    animation: spin 2s linear infinite;
- }
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.hide-loader{
-display:none;
-}
 
 #loading-message {
   text-align: center;
 }
+
+
+
+.spinner div {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: -20px;
+  top: 300px;
+  background-color: darkred;
+  border-radius: 50%;
+  animation: move 4s infinite cubic-bezier(.2,.64,.81,.23);
+}
+.spinner div:nth-child(2) {
+  animation-delay: 150ms;
+}
+.spinner div:nth-child(3) {
+  animation-delay: 300ms;
+}
+.spinner div:nth-child(4) {
+  animation-delay: 450ms;
+}
+@keyframes move {
+  0% {left: 0%;}
+  75% {left:100%;}
+  100% {left:100%;}
+}
+
+
+

@@ -47,10 +47,12 @@ class App extends Component {
 
      main = async () => {
 
+
+
+
       try {
        
         var model = await downloadModel();
-
 
         var modelLoad = "LOADED";
         this.modelLoad = modelLoad;
@@ -60,10 +62,15 @@ class App extends Component {
         this.model = model;
         this.setState({model});       
 
+
         if (this.modelLoad !=="") {
-          const elem = document.getElementById('loading-message');
-          elem.style.display = 'none';
-        }
+          const elem1 = document.getElementById('loading-message');
+          elem1.style.display = 'none';
+          const elem2 = document.getElementById('spinner');
+          elem2.style.display = 'none';
+          const elem3= document.getElementById('webcam-wrapper');
+          elem3.style.display = 'flex';
+        } 
 
         this.startWebcam();
 
@@ -121,8 +128,6 @@ class App extends Component {
 
 
 
-
-
         prediction.forEach(box => {
           const {
             top, left, bottom, right, classProb, className,
@@ -164,7 +169,6 @@ class App extends Component {
         rects[0].parentNode.removeChild(rects[0]);
       }
     }
-
 
 
 

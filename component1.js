@@ -16,9 +16,17 @@ const Comp = (props) => (
     </div> <br/>
 
     <div id="loading-message">
-       YOLO model is loading. This will take a few moments ...
+       <p>YOLO model is loading. This will take a few moments ...</p>
+       <p>All goods things come for those who wait</p>
     </div><br/>    
 
+    <div className="spinner" id="spinner">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+    
     <div id="webcam-wrapper" >
         <video id="video"  width="416" height="416" controls autoPlay ></video>
     </div><br/>

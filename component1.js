@@ -20,12 +20,17 @@ const Comp = (props) => (
        <p>All goods things come for those who wait</p>
     </div><br/>    
 
-    <div className="spinner" id="spinner">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
+<div className="sk-cube-grid" id="sk-cube-grid">
+  <div className="sk-cube sk-cube1"></div>
+  <div className="sk-cube sk-cube2"></div>
+  <div className="sk-cube sk-cube3"></div>
+  <div className="sk-cube sk-cube4"></div>
+  <div className="sk-cube sk-cube5"></div>
+  <div className="sk-cube sk-cube6"></div>
+  <div className="sk-cube sk-cube7"></div>
+  <div className="sk-cube sk-cube8"></div>
+  <div className="sk-cube sk-cube9"></div>
+</div>
     
     <div id="webcam-wrapper" >
         <video id="video"  width="416" height="416" controls autoPlay ></video>

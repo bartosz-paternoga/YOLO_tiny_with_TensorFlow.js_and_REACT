@@ -2,5 +2,5 @@ This is a REACT app with TensorFlow.js and YOLO tiny. The app is making an objec
 LIVE DEMO: https://bartosz-paternoga.github.io/react-yolo-tfjs
 
 
-Intro to the topic:
+More on the topic:
 https://modeldepot.io/mikeshi/tiny-yolo-in-javascript
